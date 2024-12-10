@@ -1,0 +1,49 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="navigatingTo" class="bg-gray-100">
+    <ActionBar title="Criar Conta" class="bg-blue-600 text-white">
+        <NavigationButton text="Voltar" />
+    </ActionBar>
+    
+    <ScrollView>
+        <StackLayout class="p-6">
+            <Label text="Cadastro de Usuário" class="text-2xl font-bold text-center mb-8" />
+            
+            <StackLayout class="bg-white p-4 rounded-lg">
+                <Label text="Nome Completo" class="text-sm font-medium text-gray-600 mb-1" />
+                <TextField text="{{ name }}" 
+                          hint="Digite seu nome completo"
+                          class="input p-3 border border-gray-300 rounded-md mb-4" />
+                
+                <Label text="Matrícula" class="text-sm font-medium text-gray-600 mb-1" />
+                <TextField text="{{ registration }}" 
+                          hint="Digite sua matrícula"
+                          class="input p-3 border border-gray-300 rounded-md mb-4" />
+                
+                <Label text="Senha" class="text-sm font-medium text-gray-600 mb-1" />
+                <TextField text="{{ password }}" 
+                          hint="Digite sua senha" 
+                          secure="true"
+                          class="input p-3 border border-gray-300 rounded-md mb-4" />
+                
+                <Label text="Confirmar Senha" class="text-sm font-medium text-gray-600 mb-1" />
+                <TextField text="{{ confirmPassword }}" 
+                          hint="Confirme sua senha" 
+                          secure="true"
+                          class="input p-3 border border-gray-300 rounded-md mb-4" />
+                
+                <Label text="Tipo de Usuário" class="text-sm font-medium text-gray-600 mb-1" />
+                <ListPicker items="{{ roles }}" 
+                           selectedIndex="{{ selectedRoleIndex }}"
+                           class="p-3 border border-gray-300 rounded-md mb-6" />
+                
+                <Button text="Cadastrar" 
+                        tap="{{ onRegister }}" 
+                        class="bg-blue-600 text-white p-4 rounded-lg" />
+            </StackLayout>
+            
+            <Label text="{{ errorMessage }}" 
+                   class="text-red-500 text-center mt-4" 
+                   textWrap="true"
+                   visibility="{{ errorMessage ? 'visible' : 'collapsed' }}" />
+        </StackLayout>
+    </ScrollView>
+</Page>

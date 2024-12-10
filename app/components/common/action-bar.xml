@@ -1,0 +1,9 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd">
+    <ActionBar class="{{ actionBarClass }}">
+        <NavigationButton text="{{ backButtonText }}" visibility="{{ showBackButton ? 'visible' : 'collapsed' }}" tap="{{ onBack }}" />
+        <Label text="{{ title }}" class="text-lg font-semibold" />
+        <ActionBar.actionItems>
+            <ActionItem text="Sair" tap="{{ onLogout }}" ios.position="right" />
+        </ActionBar.actionItems>
+    </ActionBar>
+</Page>

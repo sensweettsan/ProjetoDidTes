@@ -1,0 +1,23 @@
+<GridLayout rows="auto, *" class="bg-gray-100">
+    <SearchBar hint="Buscar produto" text="{{ searchQuery }}" 
+              class="bg-white m-2" />
+    
+    <ListView items="{{ products }}" row="1" class="list-group">
+        <ListView.itemTemplate>
+            <StackLayout class="list-group-item p-4 bg-white m-2 rounded-lg">
+                <Label text="{{ name }}" class="font-bold text-lg" />
+                <GridLayout columns="*, *" class="text-sm text-gray-600">
+                    <Label text="Quantidade: {{ quantity }} {{ unit }}" />
+                    <Label text="Local: {{ location }}" col="1" />
+                </GridLayout>
+                <GridLayout columns="*, *" class="text-sm text-gray-600 mt-2">
+                    <Label text="Entradas: {{ monthlyEntries }}" />
+                    <Label text="Saídas: {{ monthlyExits }}" col="1" />
+                </GridLayout>
+                <Label text="Saldo: {{ balance }}" class="text-sm text-gray-600 mt-1" />
+                <Button text="Detalhes" tap="{{ $parent.onShowDetails }}"
+                        class="bg-blue-500 text-white p-2 mt-2 rounded" />
+            </StackLayout>
+        </ListView.itemTemplate>
+    </ListView>
+</GridLayout>

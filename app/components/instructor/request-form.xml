@@ -1,0 +1,38 @@
+<StackLayout class="p-4">
+    <ScrollView>
+        <StackLayout>
+            <Label text="Solicitar Material Didático" class="text-xl font-bold mb-4" />
+            
+            <StackLayout class="bg-white p-4 rounded-lg">
+                <Label text="Nome do Material" class="text-sm font-medium text-gray-600 mb-1" />
+                <TextField text="{{ materialName }}" 
+                          hint="Digite o nome do material"
+                          class="input p-3 border border-gray-300 rounded-md mb-4" />
+                
+                <Label text="Quantidade" class="text-sm font-medium text-gray-600 mb-1" />
+                <TextField text="{{ quantity }}" 
+                          hint="Digite a quantidade necessária"
+                          keyboardType="number"
+                          class="input p-3 border border-gray-300 rounded-md mb-4" />
+                
+                <Label text="Justificativa" class="text-sm font-medium text-gray-600 mb-1" />
+                <TextView text="{{ justification }}" 
+                          hint="Explique a necessidade do material"
+                          class="input p-3 border border-gray-300 rounded-md mb-4"
+                          height="150" />
+                
+                <Label text="Data Necessária" class="text-sm font-medium text-gray-600 mb-1" />
+                <DatePicker date="{{ neededDate }}" class="mb-4" />
+                
+                <Button text="Enviar Solicitação" 
+                        tap="{{ onSubmitRequest }}"
+                        class="bg-green-600 text-white p-4 rounded-lg" />
+            </StackLayout>
+            
+            <Label text="{{ message }}" 
+                   class="text-center mt-4" 
+                   textWrap="true"
+                   visibility="{{ message ? 'visible' : 'collapsed' }}" />
+        </StackLayout>
+    </ScrollView>
+</StackLayout>

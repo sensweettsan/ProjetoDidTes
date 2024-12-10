@@ -1,0 +1,41 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="navigatingTo">
+    <ActionBar title="Painel do Administrador" class="bg-blue-600 text-white">
+        <NavigationButton text="Sair" tap="{{ onLogout }}" />
+    </ActionBar>
+    
+    <TabView selectedIndex="{{ selectedTab }}" class="bg-gray-100">
+        <TabViewItem title="Estoque">
+            <GridLayout>
+                <ns:ProductList products="{{ products }}" 
+                               onShowDetails="{{ showProductDetails }}" />
+            </GridLayout>
+        </TabViewItem>
+        
+        <TabViewItem title="Movimentações">
+            <GridLayout>
+                <ns:MovementReport movements="{{ movements }}"
+                                  startDate="{{ startDate }}"
+                                  endDate="{{ endDate }}" />
+            </GridLayout>
+        </TabViewItem>
+        
+        <TabViewItem title="Solicitações">
+            <ListView items="{{ requests }}" class="list-group">
+                <ListView.itemTemplate>
+                    <StackLayout class="list-group-item p-4 bg-white m-2 rounded-lg">
+                        <Label text="{{ instructor }}" class="font-bold" />
+                        <Label text="{{ materialName }}" />
+                        <Label text="{{ quantity }}" />
+                        <Label text="{{ justification }}" textWrap="true" />
+                        <GridLayout columns="*, *" class="mt-2">
+                            <Button text="Aprovar" tap="{{ $parent.onApproveRequest }}"
+                                    class="bg-green-500 text-white p-2 m-1 rounded" />
+                            <Button text="Rejeitar" tap="{{ $parent.onRejectRequest }}"
+                                    class="bg-red-500 text-white p-2 m-1 rounded" col="1" />
+                        </GridLayout>
+                    </StackLayout>
+                </ListView.itemTemplate>
+            </ListView>
+        </TabViewItem>
+    </TabView>
+</Page>

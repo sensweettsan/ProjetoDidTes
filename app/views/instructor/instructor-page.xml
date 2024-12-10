@@ -1,0 +1,25 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="navigatingTo">
+    <ActionBar title="Painel do Instrutor" class="bg-green-600 text-white">
+        <NavigationButton text="Sair" tap="{{ onLogout }}" />
+    </ActionBar>
+    
+    <TabView selectedIndex="{{ selectedTab }}" class="bg-gray-100">
+        <TabViewItem title="Nova Solicitação">
+            <ns:RequestForm onSubmit="{{ onSubmitRequest }}" />
+        </TabViewItem>
+        
+        <TabViewItem title="Minhas Solicitações">
+            <ListView items="{{ myRequests }}" class="list-group">
+                <ListView.itemTemplate>
+                    <StackLayout class="list-group-item p-4 bg-white m-2 rounded-lg">
+                        <Label text="{{ materialName }}" class="font-bold" />
+                        <Label text="Quantidade: {{ quantity }}" />
+                        <Label text="Status: {{ status }}" class="{{ statusClass }}" />
+                        <Label text="Data: {{ requestDate }}" class="text-sm text-gray-600" />
+                        <Label text="{{ justification }}" textWrap="true" class="mt-2" />
+                    </StackLayout>
+                </ListView.itemTemplate>
+            </ListView>
+        </TabViewItem>
+    </TabView>
+</Page>
